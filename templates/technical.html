@@ -1,0 +1,85 @@
+{% extends 'index.html' %}
+
+{% block body %}
+
+<div class="technical">
+    <h3>What is a Deepfake?</h3>
+    <p>
+        A DeepFake is a synthetic type of media, manipulated by <a href="https://lab.irt.de/deep-learning-in-multimedia/" target="_blank">Deep Learning</a> algorithms, 
+        where the person saying or doing something is realistically replaced by another person. 
+        DeepFakes can be used a very convincing means of misinformation. The amount as well as the quality of DeepFakes that are circulated in the web every day is rapidly increasing, 
+        thus being an increasing <a href="https://www.zdf.de/nachrichten/digitales/deepfake-video-sorge-faelschungen-100.html" target="_blank">threat for democracy</a>.
+    </p>
+    <h3>
+        How can you identify a Deepfake?
+    </h3>
+    <p>
+        As of today, one can identify whether content is Deepfake or real by observing some specific characteristics such as face discolorations, 
+        blurriness in face regions etc. Nevertheless, the Deepfakes creators improve their techniques and it is increasingly harder for a human to make accurate predictions. 
+        For this reason, systems that detect automatically Deepfakes are crucial.  
+    </p>
+    <h3>
+        Types of Deepfake manipulations
+    </h3>
+    <p>
+        Deepfakes are usually categorized in four main types of manipulations based on the category of facial manipulations: 
+        i.e. Entire Face Synthesis, Attribute Manipulation, Identity Swap and Expression Swap. Entire Face Synthesis, as the name 
+        says synthesizes an entire fictional face using powerful <a href="https://en.wikipedia.org/wiki/Generative_adversarial_network" target="_blank">GANs</a>. 
+        In contrast, Attribute Manipulation modifies an existing face, and this modification can be achieved through 
+        <a href="https://en.wikipedia.org/wiki/Generative_adversarial_network" target="_blank">GANs</a>. 
+        Facial modifications are for example aging or de-aging, changing of hair color or skin color, changing the gender, adding a beard etc. 
+        Identity Swap, the most common type of deepfakes, replaces the face of person A with the face of person B. This manipulation, as in the example of 
+        <a href="https://faceswap.dev/" target="_blank">faceswap</a>, is carried out using an <a href="https://en.wikipedia.org/wiki/Autoencoder">autoencoder</a>. 
+        Lastly, Expression Swap modifies facial expressions, usually in the mouth area, by replacing the motion of a certain region in the face of person A with the motion of the corresponding area of person B. 
+        Popular approaches for Expression Swap are <a href="https://niessnerlab.org/projects/thies2016face.html" target="_blank">Face2Face</a> or 
+        <a href="https://niessnerlab.org/projects/thies2019neural.html" target="_blank">NeuralTextures</a>. 
+        An overview of the different types of manipulation can be seen below.  
+    </p>
+    <div class="deepfaketypes-center">
+        <img class="deepfaketypes" src="/static/deepfaketypes.JPG" alt="Types of Deepfake manipulations">
+        <figcaption>Reprinted from “DeepFakes and Beyond: A Survey of Face Manipulation and Fake Detection”, by R. Tolosana, R. Vera-Rodriguez, J. Fierrez, A. Morales, & J. Ortega-Garcia. (2020).</figcaption>
+    </div>
+    <h3>
+        How our system works
+    </h3>
+    <p>
+        The system takes as input an image, video or an URL. The format of the uploaded files can be any of the common image or video formats. 
+        For the required URL format please refer to the URL page.
+        Firstly, the provided image is fed through a <a href="https://github.com/timesler/facenet-pytorch" target="_blank">MTCNN</a> to detect a face in the image. 
+        If the face detector fails to detect a face in the image the system outputs 'No face detected' and the algorithm terminates. Otherwise, the region of the face is
+        cropped and resized to 256x256. Afterwards, the preprocessed input is fed through the deepfake classifier. The deepfake classifier is an 
+        <a href="https://ai.googleblog.com/2019/05/efficientnet-improving-accuracy-and.html" target="_blank">EfficientNet-B0</a> trained on a collection of deepfake and real datasets.
+        Eventually, it predicts wether the input is a deepfake or not and the algorithm terminates.
+        The same process is sequentially applied to a specific number of frames when a video is provided and the prediction is avaraged over all these frames.    
+    </p> 
+    <h3>
+        Dataset
+    </h3>
+    <p>
+        The deepfake classifier is trained on a collection of datasets, i.e. the training set consists of  
+        <a href="http://www.niessnerlab.org/projects/roessler2019faceforensicspp.html" target="_blank">FaceForensics++</a> dataset, 
+        <a href="http://cvlab.cse.msu.edu/dffd-dataset.html" target="_blank">DFFD</a> dataset, 
+        300 sample videos of <a href="https://ai.facebook.com/datasets/dfdc/" target="_blank">DFDC</a> dataset, 
+        <a href="https://ai.googleblog.com/2019/09/contributing-data-to-deepfake-detection.html" target="_blank">Google's deepfake</a> dataset.
+        These datasets were combined and augmented further. Below you can see exemplary the type of augmentations that were used on the training set. 
+    </p>
+    <div class="augmentation-center">
+        <img class="augmentation" src="/static/augmentation.JPG" alt="augmentation">
+        <figcaption>Samples from DFirt before and after preprocessing.</figcaption>
+    </div>
+    <h3>
+        Performance
+    </h3>
+    <p>
+        The Figure below contains the accuray for <a href="https://ai.googleblog.com/2019/05/efficientnet-improving-accuracy-and.html" target="_blank">EfficientNet-B0</a> 
+        on <a href="http://cvlab.cse.msu.edu/dffd-dataset.html" target="_blank">DFFD</a> test set which containts the classes Attribute Manipulation (AM) and Entire Face Synthesis (EFS). 
+        The classes Expression Swap (Face2Face, NeuralTextures), Identity Swap (Deepfake, FaceSwap) and Real are tested on <a href="http://www.niessnerlab.org/projects/roessler2019faceforensicspp.html" target="_blank">FaceForensics++</a> 
+        automated benchmark. FaceFonesics++ provides a test set of 1000 frames of forged faces from 1000 videos. 
+        Each frame was taken randomly from each video. Once the frames are classified and the predicted labels are saved, we can upload the saved predictions and FaceForensics++ automated 
+        benchmark calculates the binary classification accuracy. Below you can see the performance of the deepfake classifier on this test set. 
+    </p>
+    <div class="performance-center">
+        <img class="performance" src="/static/performance.png" alt="performance">
+    </div>
+</div>  
+{% endblock %}

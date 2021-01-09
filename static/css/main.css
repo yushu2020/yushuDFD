@@ -1,0 +1,213 @@
+*{
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    color: #00000065;
+    background: #ffffff;
+}
+
+.container{
+    width: 100%;
+    height: 100%;
+}
+
+.technical{
+    margin:0 auto;
+    width: 95%;
+    height: 95%;
+}
+
+.acknow{
+    margin:0 auto;
+    width: 95%;
+    height: 95%;
+}
+
+.menu{
+    margin-top: 4%;
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+.menu nav ul li{
+    display: inline-flex;
+    transition: all ease-in-out 0.2s;
+    margin: 0.5%;
+}
+
+.nav{
+    border: none;
+    font-size: 15px
+}
+
+.nav:hover{
+    text-decoration: underline;
+    text-decoration-color: #004f9f;
+}
+
+ .git-btn{
+    width: 20px;
+    height: auto;
+}
+
+
+.IRTcenter{
+    text-align: center;
+}
+
+.IRTlogo{
+    margin-top: 35px;
+    width: 112px;
+    height: auto;
+}
+
+.DFirtlogo{
+    text-align: center;
+    width: 130px;
+    height: auto;
+    margin-bottom: 3%;
+}
+
+
+
+.custom-file-upload {
+    display: inline-block;
+    border: 1px solid silver;
+    border-radius: 5px;
+    width: 15%;
+    padding: 12px 1px;
+    overflow-x: auto;
+    color: silver;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+
+input[type=submit], input[type=button]{
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.input-field{
+    display: inline-block;
+    border: 1px solid silver;
+    border-radius: 5px;
+    width: 15%;
+    padding: 12px 1px;
+}
+
+::placeholder{
+    overflow-x: 14px;
+    text-align: center;
+    color: silver;
+    font-size: auto;
+}
+
+
+.page{
+    margin-top: 7%;
+}
+
+h3{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #0000009a;
+}
+
+h2{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #0000009a;
+}
+
+.info{
+    margin-top: 20px;
+    margin-bottom:20px;
+}
+
+.example-url{
+    margin-top: 10px;
+    font-family: Courier, monospace;
+    margin-bottom: 65px;
+}
+
+.format{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+p{
+    hyphens: auto;
+    text-align: justify;
+}
+
+.intro{
+    text-align: center;
+    font-size: large;
+}
+
+.classification{
+    margin-top: 70px;
+    text-align: center;
+}
+
+.prediction{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #00000065;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.predict-btn{
+    background-color: #004f9f;
+    border-radius: 5px;
+    border: none;
+    color: #ffffff;
+    padding: 12px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.deepfaketypes-center{
+    text-align: center;
+    overflow-x: auto;
+}
+
+.deepfaketypes{
+    width: 712px;
+    height: auto;
+}
+
+.augmentation-center{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+}
+
+.augmentation{
+    width: 412px;
+    height: auto;
+}
+
+figcaption{
+    font-size: 12px;
+}
+
+.performance-center{
+    text-align: center;
+    overflow-x: auto;
+}
+
+.performance{
+    width: 920px;
+    height: auto;
+}
+
