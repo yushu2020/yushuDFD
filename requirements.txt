@@ -10,4 +10,4 @@ facenet-pytorch==2.4.1
 pafy
 requests==2.24.0
 youtube-dl
-git clone https://github.com/lukemelas/EfficientNet-PyTorch
+efficientNet-pyTorch
