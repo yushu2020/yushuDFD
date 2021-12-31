@@ -1,5 +1,5 @@
 flask==1.1.2
-gunicorn==20.0.4
+gunicorn
 numpy==1.18.1
 opencv-python
 -f https://download.pytorch.org/whl/torch_stable.html
