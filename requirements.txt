@@ -10,4 +10,4 @@ facenet-pytorch==2.4.1
 pafy
 requests==2.24.0
 youtube-dl
-efficientnet_pytorch
+efficientnet-pytorch==0.7.1
