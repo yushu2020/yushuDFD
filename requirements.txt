@@ -2,7 +2,7 @@ flask
 future
 gunicorn
 numpy
-opencv-python==3.2.0.8
+opencv-python
 -f https://download.pytorch.org/whl/torch_stable.html
 torch==1.4.0+cpu 
 torchvision==0.5.0+cpu 
